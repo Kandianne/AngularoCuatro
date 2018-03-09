@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IProduct } from "./product";
 
 @Component({
     selector: 'pm-products',
@@ -6,7 +7,11 @@ import { Component } from "@angular/core";
 })
 export class ProductListComponent {
     viewTitle: string = 'Product List';
-    products: any[] = [
+    imageWidth: number = 50;
+    imageMargin: number = 2;
+    showImage: boolean = false;
+    listFilter: string = 'cart';
+    products: IProduct[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -38,4 +43,8 @@ export class ProductListComponent {
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
     ];
+
+    toggleImage(): void{
+        this.showImage = !this.showImage;
+    }
 }
